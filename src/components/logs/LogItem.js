@@ -8,12 +8,12 @@ const LogItem = ({ log }) => {
 			<div>
 				<a
 					href='#edit-log-modal'
-					style={{ fontWeight: '600' }}
+					style={{ fontWeight: '600', verticalAlign: 'super' }}
 					className={`modal-trigger ${log.attention ? 'red-text' : 'purple-text'}`}
 				>
 					{log.attention && (
-						<i class='material-icons' style={{ fontSize: '20px' }}>
-							priority_high
+						<i class='material-icons' style={{ fontSize: '20px', verticalAlign: 'sub' }}>
+							error
 						</i>
 					)}
 					{log.message}
