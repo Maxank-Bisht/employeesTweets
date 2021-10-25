@@ -12,7 +12,7 @@ const LogItem = ({ log }) => {
 					className={`modal-trigger ${log.attention ? 'red-text' : 'purple-text'}`}
 				>
 					{log.attention && (
-						<i class='material-icons' style={{ fontSize: '20px', verticalAlign: 'sub' }}>
+						<i className='material-icons' style={{ fontSize: '20px', verticalAlign: 'sub' }}>
 							error
 						</i>
 					)}

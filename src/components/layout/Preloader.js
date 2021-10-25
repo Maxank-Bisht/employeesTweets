@@ -2,8 +2,8 @@ import React from 'react';
 
 const Preloader = () => {
 	return (
-		<div class='progress' style={{ marginTop: '8rem' }}>
-			<div class='indeterminate'></div>
+		<div className='progress' style={{ marginTop: '8rem' }}>
+			<div className='indeterminate'></div>
 		</div>
 	);
 };
