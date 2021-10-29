@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import { getLogs } from '../../actions/logActions';
 import PropTypes from 'prop-types';
 
-const Logs = ({ logs, loading, getLogs }) => {
+const Logs = ({ log: { logs, loading }, getLogs }) => {
 	useEffect(() => {
-		console.log('hell0');
 		getLogs();
 		// eslint-disable-next-line
 	}, []);
@@ -31,15 +30,16 @@ const Logs = ({ logs, loading, getLogs }) => {
 };
 
 Logs.propTypes = {
-	logs: PropTypes.array.isRequired,
-	loading: PropTypes.bool.isRequired,
-	// log: PropTypes.object.isRequired,
+	// logs: PropTypes.array.isRequired,
+	// loading: PropTypes.bool.isRequired,
+	getLogs: PropTypes.func.isRequired,
+	log: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	logs: state.log.logs,
-	loading: state.log.loading,
-	// log: state.log,
+	// logs: state.log.logs,
+	// loading: state.log.loading,
+	log: state.log,
 });
 
 export default connect(mapStateToProps, { getLogs })(Logs);
