@@ -1,4 +1,4 @@
-import { ADD_TECH, GET_TECHS, DELETE_TECH, TECHS_ERROR, SET_LOADING } from './types';
+import { ADD_TECH, GET_TECHS, DELETE_TECH, TECHS_ERROR, SET_LOADING, ADD_LOG } from './types';
 
 //  get techs
 export const getTechs = () => async (dispatch) => {
@@ -8,6 +8,30 @@ export const getTechs = () => async (dispatch) => {
 		const data = await res.json();
 		dispatch({
 			type: GET_TECHS,
+			payload: data,
+		});
+	} catch (err) {
+		dispatch({
+			type: TECHS_ERROR,
+			payload: err.response.statusText,
+		});
+	}
+};
+
+// add tech
+export const addTech = (tech) => async (dispatch) => {
+	try {
+		setLoading();
+		const res = await fetch('/techs', {
+			method: 'POST',
+			body: JSON.stringify(tech),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		});
+		const data = await res.json();
+		dispatch({
+			type: ADD_TECH,
 			payload: data,
 		});
 	} catch (err) {
